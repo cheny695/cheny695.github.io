@@ -189,9 +189,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -219,6 +223,102 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/20/SpringBoot---WebMvcConfigurer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="cheny695">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cheny695的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/12/20/SpringBoot---WebMvcConfigurer/" class="post-title-link" itemprop="url">SpringBoot---WebMvcConfigurer</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-20 22:23:00 / 修改时间：22:24:19" itemprop="dateCreated datePublished" datetime="2020-12-20T22:23:00+08:00">2020-12-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>WebMvcConfigurer 配置类其实是 Spring 内部的一种配置方式，采用 JavaBean 的形式来代替传统的 xml 配置文件形式进行针对框架个性化定制，如自定义 Handler,Interceptor, ViewResolver, MessageConverter。</p>
+<h3 id="2-WebMvcConfigurer-接口"><a href="#2-WebMvcConfigurer-接口" class="headerlink" title="2.WebMvcConfigurer 接口"></a>2.WebMvcConfigurer 接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">configurePathMatch</span><span class="params">(PathMatchConfigurer var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">configureContentNegotiation</span><span class="params">(ContentNegotiationConfigurer var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">configureAsyncSupport</span><span class="params">(AsyncSupportConfigurer var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">configureDefaultServletHandling</span><span class="params">(DefaultServletHandlerConfigurer var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addFormatters</span><span class="params">(FormatterRegistry var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">configureViewResolvers</span><span class="params">(ViewResolverRegistry var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addArgumentResolvers</span><span class="params">(List&lt;HandlerMethodArgumentResolver&gt; var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addReturnValueHandlers</span><span class="params">(List&lt;HandlerMethodReturnValueHandler&gt; var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">configureMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">extendMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">configureHandlerExceptionResolvers</span><span class="params">(List&lt;HandlerExceptionResolver&gt; var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">extendHandlerExceptionResolvers</span><span class="params">(List&lt;HandlerExceptionResolver&gt; var1)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function">Validator <span class="title">getValidator</span><span class="params">()</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function">MessageCodesResolver <span class="title">getMessageCodesResolver</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>常用方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/* 拦截器配置 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry var1)</span></span>;</span><br><span class="line"><span class="comment">/* 视图跳转控制器 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span></span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     *静态资源处理</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span></span>;</span><br><span class="line"><span class="comment">/* 默认静态资源处理器 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">configureDefaultServletHandling</span><span class="params">(DefaultServletHandlerConfigurer configurer)</span></span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 这里配置视图解析器</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">configureViewResolvers</span><span class="params">(ViewResolverRegistry registry)</span></span>;</span><br><span class="line"><span class="comment">/* 配置内容裁决的一些选项*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">configureContentNegotiation</span><span class="params">(ContentNegotiationConfigurer configurer)</span></span>;</span><br><span class="line"><span class="comment">/** 解决跨域问题 **/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-addInterceptors：拦截器"><a href="#2-1-addInterceptors：拦截器" class="headerlink" title="2.1 addInterceptors：拦截器"></a>2.1 addInterceptors：拦截器</h4><ul>
+<li>addInterceptor：需要一个实现 HandlerInterceptor 接口的拦截器实例</li>
+<li>addPathPatterns：用于设置拦截器的过滤路径规则；(“/**”)对所有请求都拦截</li>
+<li>excludePathPatterns：用于设置不需要拦截的过滤规则</li>
+<li>拦截器的主要用途：进行用户登录状态的拦截，日志的拦截</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.addInterceptors(registry);</span><br><span class="line">	registry.addInterceptor(<span class="keyword">new</span> TestInterceptor()).addPathPatterns(<span class="string">&quot;/**&quot;</span>).excludePathPatterns(<span class="string">&quot;/emp/toLogin&quot;</span>,<span class="string">&quot;/emp/login&quot;</span>,<span class="string">&quot;/js/**&quot;</span>,<span class="string">&quot;/css/**&quot;</span>,<span class="string">&quot;/images/**&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-addViewControllers：页面跳转"><a href="#2-2-addViewControllers：页面跳转" class="headerlink" title="2.2 addViewControllers：页面跳转"></a>2.2 addViewControllers：页面跳转</h4><p>在 SpringMVC 中，如果要访问一个页面，必须写一个 Controller 类，然后再写一个方法跳转页面。这里只需重写WebMvcConfigurer 中的 addViewConrollers 方法即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">	registry.addViewController(<span class="string">&quot;/toLogin&quot;</span>).setViewName(<span class="string">&quot;login&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里重写的 addViewControllers 方法并不会覆盖 WebMvcAutoConfiguration(SpringBoot自动配置) 中的 addViewControllers（在此方法中，SpringBoot将”/“映射至index.html），这也就意味着自己的配置和 Spring Boot 的自动配置同时有效，这也是推荐添加自己的 MVC 配置方式的原因。</p>
+<h4 id="2-3-addResourceHandlers：静态资源"><a href="#2-3-addResourceHandlers：静态资源" class="headerlink" title="2.3 addResourceHandlers：静态资源"></a>2.3 addResourceHandlers：静态资源</h4><p>如果我们想自定义静态资源映射目录的话，只需重写 addResourceHandlers 方法即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyWebMvcConfigurerAdapter</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">		registry.addResourceHandlers(<span class="string">&quot;/my/**&quot;</span>).addResourceLocations(<span class="string">&quot;classpath&quot;</span>/my/<span class="string">&quot;);</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>addResourceHandlers：指的是对外暴露的访问路径</li>
+<li>addResourceLocation：指的是内部文件放置的目录</li>
+</ul>
+<h5 id="2-4-configureDefaultServletHandling：默认静态资源处理器"><a href="#2-4-configureDefaultServletHandling：默认静态资源处理器" class="headerlink" title="2.4 configureDefaultServletHandling：默认静态资源处理器"></a>2.4 configureDefaultServletHandling：默认静态资源处理器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configureDefaultServletHandling</span><span class="params">(DefaultServletHandlerConfigurer configurer)</span> </span>&#123;</span><br><span class="line">	configurer.enable();</span><br><span class="line">	configurer.enable(<span class="string">&quot;defaultServletName&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-5-configureViewResolvers：视图解析器"><a href="#2-5-configureViewResolvers：视图解析器" class="headerlink" title="2.5 configureViewResolvers：视图解析器"></a>2.5 configureViewResolvers：视图解析器</h4><p>这个方法是配置视图解析器的，该方法的参数ViewResolverRegistry 是一个注册器，用来注册你想自定义的视图解析器等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 配置请求视图映射</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> InternalResourceViewResolver <span class="title">resourceViewResolver</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	InternalResourceViewResolver internalResourceViewResolver = <span class="keyword">new</span> InternalResourceViewResolver();</span><br><span class="line">	<span class="comment">//请求视图文件的前缀地址</span></span><br><span class="line">	internalResourceViewResolver.setPrefix(<span class="string">&quot;/WEB-INF/jsp/&quot;</span>);</span><br><span class="line">	<span class="comment">//请求视图文件的后缀</span></span><br><span class="line">	internalResourceViewResolver.setSuffix(<span class="string">&quot;.jsp&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> internalResourceViewResolver;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 视图配置</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> registry</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configureViewResolvers</span><span class="params">(ViewResolverRegistry registry)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.configureViewResolvers(registry);</span><br><span class="line">	registry.viewResolver(resourceViewResolver());</span><br><span class="line">	<span class="comment">/*registry.jsp(&quot;/WEB-INF/jsp/&quot;,&quot;.jsp&quot;);*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-6-configureContentNegotiation：配置内容裁决的一些参数"><a href="#2-6-configureContentNegotiation：配置内容裁决的一些参数" class="headerlink" title="2.6 configureContentNegotiation：配置内容裁决的一些参数"></a>2.6 configureContentNegotiation：配置内容裁决的一些参数</h5><h5 id="2-7-addCorsMappings：跨域"><a href="#2-7-addCorsMappings：跨域" class="headerlink" title="2.7 addCorsMappings：跨域"></a>2.7 addCorsMappings：跨域</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.addCorsMappings(registry);</span><br><span class="line">    registry.addMapping(<span class="string">&quot;/cors/**&quot;</span>)</span><br><span class="line">            .allowedHeaders(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">            .allowedMethods(<span class="string">&quot;POST&quot;</span>,<span class="string">&quot;GET&quot;</span>)</span><br><span class="line">            .allowedOrigins(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-8-configureMessageConverters：信息转换器"><a href="#2-8-configureMessageConverters：信息转换器" class="headerlink" title="2.8 configureMessageConverters：信息转换器"></a>2.8 configureMessageConverters：信息转换器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 消息内容转换配置</span></span><br><span class="line"><span class="comment"> * 配置fastJson返回json转换</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> converters</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configureMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//调用父类的配置</span></span><br><span class="line">    <span class="keyword">super</span>.configureMessageConverters(converters);</span><br><span class="line">    <span class="comment">//创建fastJson消息转换器</span></span><br><span class="line">    FastJsonHttpMessageConverter fastConverter = <span class="keyword">new</span> FastJsonHttpMessageConverter();</span><br><span class="line">    <span class="comment">//创建配置类</span></span><br><span class="line">    FastJsonConfig fastJsonConfig = <span class="keyword">new</span> FastJsonConfig();</span><br><span class="line">    <span class="comment">//修改配置返回内容的过滤</span></span><br><span class="line">    fastJsonConfig.setSerializerFeatures(</span><br><span class="line">            SerializerFeature.DisableCircularReferenceDetect,</span><br><span class="line">            SerializerFeature.WriteMapNullValue,</span><br><span class="line">            SerializerFeature.WriteNullStringAsEmpty</span><br><span class="line">    );</span><br><span class="line">    fastConverter.setFastJsonConfig(fastJsonConfig);</span><br><span class="line">    <span class="comment">//将fastjson添加到视图消息转换器列表内</span></span><br><span class="line">    converters.add(fastConverter);</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -334,6 +434,79 @@
 <li>level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，还有一个特俗值INHERITED或者同义词NULL，代表强制执行上级的级别。如果未设置此属性，那么当前logger将会继承上级的级别</li>
 <li>addtivity:是否向上级logger传递打印信息。默认是true。</li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/19/%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="cheny695">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cheny695的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/12/19/%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/" class="post-title-link" itemprop="url">旋转图像</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-19 00:00:00 / 修改时间：15:26:25" itemprop="dateCreated datePublished" datetime="2020-12-19T00:00:00+08:00">2020-12-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>48.旋转图像<br>给定一个 n × n 的二维矩阵表示一个图像。<br>将图像顺时针旋转 90 度。<br><strong>说明：</strong><br>你必须在原地旋转图像，这意味着你需要直接修改输入的二维矩阵。<strong>请不要</strong>使用另一个矩阵来旋转图像。</p>
+<hr>
+<h3 id="方法一：使用辅助数组"><a href="#方法一：使用辅助数组" class="headerlink" title="方法一：使用辅助数组"></a>方法一：使用辅助数组</h3><p>经分析，<strong>对于矩阵的第 i 行的第 j 个元素，在旋转后，它出现在倒数第 i 列的第 j 个位置</strong></p>
+<p>martix[row][col] ——-martix[col][n - row - 1]</p>
+<p>我们只需使用大小和 martix 相同的辅助数组，临时存储，再将其复制到 martix 中即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">int</span>[][] matrix_new = <span class="keyword">new</span> <span class="keyword">int</span>[n][n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                matrix_new[j][n - i - <span class="number">1</span>] = matrix[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                matrix[i][j] = matrix_new[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二：原地旋转"><a href="#方法二：原地旋转" class="headerlink" title="方法二：原地旋转"></a>方法二：原地旋转</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n / <span class="number">2</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (n + <span class="number">1</span>) / <span class="number">2</span>; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = matrix[i][j];</span><br><span class="line">                matrix[i][j] = matrix[n - j - <span class="number">1</span>][i];</span><br><span class="line">                matrix[n - j - <span class="number">1</span>][i] = matrix[n - i - <span class="number">1</span>][n - j - <span class="number">1</span>];</span><br><span class="line">                matrix[n - i - <span class="number">1</span>][n - j - <span class="number">1</span>] = matrix[j][n - i - <span class="number">1</span>];</span><br><span class="line">                matrix[j][n - i - <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由方法一知，<strong>matrix[col][n−row−1]=matrix[row][col]</strong><br>每一次遍历需先存储第一个位置的值<br>每一次遍历交换四个位置的值，只需遍历方法一的1/4次</p>
 
       
     </div>
